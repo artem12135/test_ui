@@ -1,6 +1,7 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from pages.login_page import CustomerLogin
 from pages.sale_page import Sale
 from pages.search import Search
@@ -10,7 +11,8 @@ from pages.search import Search
 def driver():
     options = Options()
     options.add_argument('--headless')
-    driver = webdriver.Chrome(options=options)
+    service = Service('/usr/local/bin/chromedriver')
+    driver = webdriver.Chrome(service=service, options=options)
     yield driver
     driver.quit()
 
