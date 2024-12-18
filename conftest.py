@@ -1,4 +1,6 @@
+import allure
 import pytest
+from allure_commons.types import AttachmentType
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -14,6 +16,7 @@ def driver():
     service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service=service, options=options)
     yield driver
+    allure.attach(driver.get_screenshot_as_png(), name='screenshot', attachment_type=AttachmentType.PNG)
     driver.quit()
 
 @pytest.fixture()
