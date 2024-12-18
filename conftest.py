@@ -13,6 +13,7 @@ from pages.search import Search
 def driver():
     options = Options()
     options.add_argument('--headless')
+    options.add_argument('window-size=1920,1080')
     service = Service('/usr/local/bin/chromedriver')
     driver = webdriver.Chrome(service=service, options=options)
     yield driver
