@@ -14,10 +14,9 @@ def driver():
     options = Options()
     options.add_argument('--headless')
     options.add_argument('window-size=1920,1080')
-    service = Service('/usr/local/bin/chromedriver')
-    driver = webdriver.Chrome(service=service, options=options)
+    driver = webdriver.Chrome(options=options)
     yield driver
-    allure.attach(driver.get_screenshot_as_png(), name='screenshot', attachment_type=AttachmentType.PNG)
+    #allure.attach(driver.get_screenshot_as_png(), name='screenshot', attachment_type=AttachmentType.PNG)
     driver.quit()
 
 @pytest.fixture()
