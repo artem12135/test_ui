@@ -8,7 +8,9 @@ jobs:
     name: Run my tests
     steps:
       - name: Pull source repository
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .
       - name: Set up python environment
         uses: actions/setup-python@v5
         with:
