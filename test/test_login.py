@@ -1,6 +1,8 @@
 import allure
+import pytest
 
 
+@pytest.mark.smoke
 @allure.title('тест неудачного логина')
 def test_login(login_page):
     login_page.open_page()
